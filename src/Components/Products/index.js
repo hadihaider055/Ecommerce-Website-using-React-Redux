@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./products.module.css";
 import { ProductsData } from "./productsData";
 import { useDispatch } from "react-redux";
+import { addToCart } from "../../Global State/Action";
 
 const ProductsComp = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,6 @@ const ProductsComp = () => {
         {ProductsData.map((product) => {
           return (
             <div className={styles.products__card} key={product.name}>
-        
               <div className={styles.products__cardHeader}>
                 <h5 className={styles.products__heading}>{product.name}</h5>
               </div>
@@ -23,9 +23,7 @@ const ProductsComp = () => {
               <div className={styles.products__cardFooter}>
                 <span
                   className={styles.card__span}
-                  onClick={() =>
-                    dispatch({ type: "ADD_TO_CART", payload: product })
-                  }
+                  onClick={() => dispatch(addToCart(product))}
                 >
                   <ShoppingCart className={styles.products__cart} />
                   Add to Cart

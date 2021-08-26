@@ -1,0 +1,56 @@
+.products__mainDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 80%;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  text-align: center;
+}
+.products__mainHeading {
+  margin: 4em 0 2em 0;
+  text-align: center;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.4em;
+}
+.products__card {
+  width: 30%;
+  border-radius: 1em;
+  height: 22em;
+  margin: 1em;
+  box-shadow: 0 0 1em #00000034;
+}
+.products__card:hover {
+}
+.products__cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 4em;
+}
+.products__heading {
+  font-size: 1.3em;
+  font-family: "Georama", sans-serif;
+  text-align: center;
+}
+.products__cardBody {
+  height: 15em;
+}
+.products__cardBody > img {
+  width: 100%;
+  height: 15em;
+}
+.products__cardFooter {
+  height: 5em;
+  width: 100%;
+  margin-top: 0.4em;
+}
+.products__cart {
+  cursor: pointer;
+}
+.card__span {
+  cursor: pointer;
+  font-family: "Georama", sans-serif;
+}

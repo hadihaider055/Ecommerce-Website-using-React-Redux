@@ -11,9 +11,9 @@ const ProductsComp = () => {
     <>
       <h2 className={styles.products__mainHeading}>Products</h2>
       <div className={styles.products__mainDiv}>
-        {ProductsData.map((product) => {
+        {ProductsData.map((product, index) => {
           return (
-            <div className={styles.products__card} key={product.name}>
+            <div className={styles.products__card} key={index}>
               <div className={styles.products__cardHeader}>
                 <h5 className={styles.products__heading}>{product.name}</h5>
               </div>

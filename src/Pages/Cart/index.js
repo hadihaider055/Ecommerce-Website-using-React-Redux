@@ -1,9 +1,11 @@
 import React from "react";
 import NavbarComp from "../../Components/Navbar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./cart.module.css";
 import BannerImage from "../../Assets/banner.jpg";
+import { removeAll, removeFromCart } from "../../Global State/Action";
 const CartPage = () => {
+  const dispatch = useDispatch();
   const Products = useSelector((state) => {
     return state.products;
   });
@@ -13,9 +15,9 @@ const CartPage = () => {
       <img src={BannerImage} alt="Banner" className={styles.banner__image} />
 
       <div className={styles.cart__mainDiv}>
-        {Products.map((product) => {
+        {Products.map((product, index) => {
           return (
-            <div key={product.name}>
+            <div key={index}>
               <div className={styles.cart__imageDiv}>
                 <img src={product.img} alt={product.name} />
                 <div className={styles.cart__name}>
@@ -24,7 +26,10 @@ const CartPage = () => {
                 <div className={styles.cart__price}>{product.price}</div>
               </div>
               <div className={styles.cart__removeDiv}>
-                <button className={styles.cart__removeButton}>
+                <button
+                  className={styles.cart__removeButton}
+                  onClick={() => dispatch(removeFromCart(product))}
+                >
                   Remove from Cart
                 </button>
               </div>
@@ -32,6 +37,9 @@ const CartPage = () => {
           );
         })}
       </div>
+      {Products.length > 0 ? (
+        <button onClick={() => dispatch(removeAll())}>Remove All</button>
+      ) : null}
     </>
   );
 };
